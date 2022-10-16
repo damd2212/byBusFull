@@ -48,4 +48,9 @@ public class UserController {
     public ResponseEntity delete(@PathVariable(value = "id") Integer id){
         return new ResponseEntity(userService.deleteUser(id), HttpStatus.OK);
     }
+
+    @GetMapping(value="/login/{id}/{password}")
+    public ResponseEntity login(@PathVariable(value = "id")Integer id,@PathVariable(value = "password")String password ) {
+        return new ResponseEntity(userService.login(id, password),HttpStatus.OK);
+    }
 }
