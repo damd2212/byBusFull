@@ -7,7 +7,6 @@ import FuncionMultiplosView from '../views/FuncionMultiplosView'
 import FuncionFactorialView from '../views/FuncionFactorialView'
 import InicioSesionView from '../views/InicioSesionView'
 import RegistrarseView from '../views/RegistrarseView.vue'
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -15,7 +14,6 @@ const routes = [
     path: "/",
     name: "inicio",
     component: InicioSesionView
-
   },
   {
     path: "/registrarse",
