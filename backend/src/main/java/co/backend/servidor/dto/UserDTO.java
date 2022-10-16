@@ -8,7 +8,6 @@ import javax.persistence.*;
 public class UserDTO{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Integer phone;

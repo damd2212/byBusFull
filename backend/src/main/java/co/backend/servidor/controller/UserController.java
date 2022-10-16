@@ -17,7 +17,7 @@ import co.backend.servidor.dto.UserDTO;
 import co.backend.servidor.service.UserManagamentService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping(value = "/user")
 public class UserController {
 
@@ -30,8 +30,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/listUser/{id}")
-    public ResponseEntity listById(@PathVariable(value = "id") Integer id) {
-        return new ResponseEntity(userService.listUserById(id), HttpStatus.OK);
+    public ResponseEntity findById(@PathVariable(value = "id") Integer id) {
+        return new ResponseEntity(userService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/addUser")
