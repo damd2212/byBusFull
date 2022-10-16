@@ -6,6 +6,7 @@ import FuncionPrimosView from '../views/FuncionPrimosView'
 import FuncionMultiplosView from '../views/FuncionMultiplosView'
 import FuncionFactorialView from '../views/FuncionFactorialView'
 import InicioSesionView from '../views/InicioSesionView'
+import RegistrarseView from '../views/RegistrarseView.vue'
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     name: "inicio",
     component: InicioSesionView
 
+  },
+  {
+    path: "/registrarse",
+    name: "registrarse",
+    component: RegistrarseView
   },
   {
     path: "/funcionPalindroma",

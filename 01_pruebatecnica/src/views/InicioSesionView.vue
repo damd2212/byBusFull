@@ -5,15 +5,17 @@
             <div class="form">
                 <p class="Welcome">Bienvenido!</p>
                 <form class="formu" action="">
-                    <p class="labelN">Cedula</p>
-                    <input type="text" id="cedula" class="in" name="user" placeholder="Ej: juan" required
-                    v-model="numero" />
-                    <p class="labelC">Contraseña</p>
-                    <input type="password" id="password" class="in" name="pass" placeholder="" required
-                    v-model="numero" />
-                    <p class="labelNo">No tienes cuenta?, <a href="" id="Back">Registrate</a></p>
-                    <input type="submit" class="Send" value="Iniciar"/>
-                  
+                    <div class="elemF">
+                        <p class="labelN alinear">Cedula</p>
+                        <input type="text" id="cedula" class="in alinear" name="user" placeholder="Ej: juan" required
+                        v-model="numero" />
+                        <p class="labelC alinear">Contraseña</p>
+                        <input type="password" id="password" class="in alinear" name="pass" placeholder="" required
+                        v-model="numero" />
+                        <p class="alinear">No tienes cuenta?, <a href="" id="Back">Registrate</a></p>
+                        <input type="submit" class="Send alinear" value="Iniciar"/>
+                    </div>
+                    
                 </form>
                 
             </div>
@@ -42,32 +44,24 @@ export default {
 .form{
     width: 30%;
     max-width: 1000px;
-    height: 50vh;
+    height: 54vh;
     margin: auto;
     background-color: rgba(196, 196, 196, 0.5);
-    
 }
 
-.formu{
+.elemF{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
-
-.labelN{
-    margin-right: 150px;
-}
-.labelC{
-    margin-right: 110px;
+.alinear{
+    margin-top: 18px;
 }
 .labelC, .labelN{
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
-.labelNo{
-    margin-left: 12px;
-}
+
 .in{
     background: rgb(196, 196, 196);
 }
@@ -88,7 +82,7 @@ export default {
     border-radius: 6px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18x;
-    margin-top: 30px;
+    margin-top: 25px;
 }
 .Send:hover{
     background: #4357ad;
@@ -96,7 +90,7 @@ export default {
 .foot{
     background-color: #246eb9;
     margin-top: 100px;
-    padding: 45px 0;
+    padding: 40px 0;
 }
 </style>
 
