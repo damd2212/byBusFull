@@ -4,23 +4,23 @@
             <img src="../assets/images/logo.png" alt="">
             <div class="form">
                 <p class="Welcome">Registrate</p>
-                <form class="formu" action="">
+                <form v-on:submit.prevent="registrar" enctype="multipart/form-data" class="formu" action="">
                     <p class="labelN alinear">Cedula</p>
                     <input type="text" id="cedula" class="in alinear" name="user" placeholder="Ej: 1111111" required
-                    v-model="numero" />
+                    v-model="cedula" />
                     <p class="labelN alinear">Nombre</p>
                     <input type="text" id="name" class="in alinear" name="user" placeholder="Ej: juan" required
-                    v-model="numero" />
+                    v-model="nombre" />
                     <p class="labelN alinear">Telefono</p>
                     <input type="tel" id="phone" class="in alinear" name="user" placeholder="Ej: 3777777777" required
-                    v-model="numero" />
+                    v-model="tel" />
                     <p class="labelN alinear">Email</p>
                     <input type="email" id="email" class="in alinear" name="user" placeholder="Ej: example@dominio.com" required
-                    v-model="numero" />
+                    v-model="email" />
                     <p class="labelC alinear">Contraseña</p>
                     <input type="password" id="password" class="in alinear" name="pass" placeholder="" required
-                    v-model="numero" />
-                    <p class="alinear">Ya te inscribiste, <a href="" id="Back">Inicia sesion</a></p>
+                    v-model="contra" />
+                    <p class="alinear">Ya te inscribiste, <a href="../" id="Back">Inicia sesion</a></p>
                     <input type="submit" class="Send alinear" value="Registrarse"/>
                   
                 </form>
@@ -35,10 +35,33 @@
     
 </template>
 <script>
+import axios from 'axios'
 export default {
-    name: "FuncionFibonacciView",
+    name: "RegistrarseView",
     mounted() {
         document.title = "Registrarse";
+    },
+    data: function () {
+        return {
+            cedula: "",
+            nombre:"",
+            tel:"",
+            email:"",
+            contra: ""
+        };
+    },
+    methods:{
+        registrar(){
+            return axios.post('http://localhost:8082/user/addUser',{id:this.cedula,name:this.nombre,phone:this.tel,email:this.email,password:this.contra}).then((response) => {
+                if (response.data) {
+                    console.log("Usuario guardado");
+                    this.$router.push("/")
+                }else{
+                    console.log("Error al guardar usuario");
+                    alert("Error al guardar usuario")
+                }
+            });
+        }
     }
 };
 </script>

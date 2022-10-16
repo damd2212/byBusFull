@@ -7,15 +7,12 @@
 
           <b-collapse id="nav_collapse" is-nav>
             <b-navbar-nav>
-              <b-nav-item style= "margin-left: 150px;" :to="{ name: 'funcionPalindroma' }" exact>Funcion Palindroma</b-nav-item>
+              <b-nav-item style= "margin-left: 450px;" :to="{ name: 'rutasUsuario' }" exact>Rutas Frecuentes</b-nav-item>
 
-              <b-nav-item :to="{ name: 'funcionFibonacci' }">Funcion Fibonacci</b-nav-item>
+              <b-nav-item :to="{ name: 'funcionPrimos' }">Espacio para api</b-nav-item>
 
-              <b-nav-item :to="{ name: 'funcionPrimos' }">Funcion Primos</b-nav-item>
+              <b-nav-item :to="{ name: 'funcionMultiplos' }">Pico y Placa</b-nav-item>
 
-              <b-nav-item :to="{ name: 'funcionMultiplos' }">Funcion Multiplos</b-nav-item>
-
-              <b-nav-item :to="{ name: 'funcionFactorial' }">Funcion Factorial</b-nav-item>
             </b-navbar-nav>
 
           </b-collapse>
