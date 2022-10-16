@@ -4,15 +4,15 @@
             <img src="../assets/images/logo.png" alt="">
             <div class="form">
                 <p class="Welcome">Bienvenido!</p>
-                <form class="formu" action="">
+                <form v-on:submit.prevent="iniciar_sesion" enctype="multipart/form-data" class="formu" action="">
                     <div class="elemF">
                         <p class="labelN alinear">Cedula</p>
                         <input type="text" id="cedula" class="in alinear" name="user" placeholder="Ej: juan" required
-                        v-model="numero" />
+                        v-model="cedula" />
                         <p class="labelC alinear">Contraseña</p>
                         <input type="password" id="password" class="in alinear" name="pass" placeholder="" required
-                        v-model="numero" />
-                        <p class="alinear">No tienes cuenta?, <a href="" id="Back">Registrate</a></p>
+                        v-model="contra" />
+                        <p class="alinear">No tienes cuenta?, <a href="../registrarse" id="Back">Registrate</a></p>
                         <input type="submit" class="Send alinear" value="Iniciar"/>
                     </div>
                     
@@ -28,10 +28,30 @@
     
 </template>
 <script>
+import axios from 'axios'
 export default {
-    name: "FuncionFibonacciView",
+    name: "InicioSesionView",
     mounted() {
         document.title = "Inicio Sesion";
+    },
+    data: function () {
+        return {
+            cedula: "",
+            contra: ""
+        };
+    },
+    methods:{
+        iniciar_sesion(){
+            return axios.get('http://localhost:8082/user/login/' + this.cedula + '/' + this.contra).then((response) => {
+                console.log(response.data)
+                if (response.data != "") {
+                    console.log("Funciona");
+                }else{
+                    console.log("Paila no existe")
+                    alert("Credenciales incorrectas")
+                }
+            });
+        }
     }
 };
 </script>
