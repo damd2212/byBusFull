@@ -2,79 +2,45 @@
     <div>
       <div>
         <app-nav-bar />
-       
-       <!--  <div v-for="ruta in lista.data" :key="ruta.id"> -->
-        <div>
-            <h1><b>Rutas mas usadas por el usuario</b></h1>
-            <button type="button" class="btn btn-success" @click="agregarRuta()">Agregar Ruta</button>
-            <br>
-            <br>
-            <div style="background-color: #E3E3E3; margin-left: 25%; margin-right: 25%; border-radius: 8px;" >
-                <table class="table" style="width: 600px; margin-left: 10%;"  >
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Empresa</th>
-                            <th>N° Ruta</th>
-                            <th>Descripcion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="ruta in lista.data" :key="ruta.id">
-                            <td>{{ruta.id}}</td>
-                            <td>{{ruta.namecom}}</td>
-                            <td>{{ruta.numruta}}</td>
-                            <td>{{ruta.description}}</td>
-                            
-                            <td><button type="button" class="btn btn-primary" @click="editarRuta(ruta.id)">Editar</button></td>
-                            <td><button type="button" class="btn btn-danger" @click="eliminar(ruta.id)">Eliminar</button></td>
-                        </tr>
-                    </tbody>
-
-                </table>
-            </div>
-        </div>
-        <!-- <div class="back">
+        <div class="back">
           <div class="wrapper fadeInDown">
+            <br>
+            <br>
+            <br>
             <br>
             <div id="formContent">
               <div>
-                <h1><b>{{ruta.id}}</b></h1>
-              </div>
-              <div>
-                <h3><b>{{ruta.namecom}}</b></h3>
+                <h1><b>Espacio API</b></h1>
               </div>
               <form v-on:submit.prevent="funcionPrimos" enctype="multipart/form-data">
                 <div>
-                  <h3><b>{{ruta.namecom}}</b></h3>
+                  <input type="text" id="numero" class="fadeIn second" name="numero" placeholder="Ingrese el numero" required
+                    v-model="numero" />
                 </div>
                 <br>
+                <br>
+                <input type="submit" class="fadeIn fourth" value="EJECUTAR" />
+                <h3><b>RESULTADO</b></h3>
+                <br>
+                <h4>{{resultado}}</h4>
                 <br>
               </form>
             </div>
           </div>
-        </div> -->
         </div>
-        </div>
-      
+      </div>
+      </div>
   </template>
   
   
   <script>
   import NavbarComponentVue from "@/components/NavbarComponent.vue";
   import axios from 'axios'
-
   
   export default {
     name: "FuncionPrimosView",
     mounted() {
       document.title = "Funcion Primos";
-      var idusuario = localStorage.getItem('usuario')
-      return axios.get('http://localhost:8083/ruta/rutas/'+idusuario).then((response)=>{
-         this.lista = response
-         console.log(this.lista.data);
-
-      })
     },
     components: {
       "app-nav-bar": NavbarComponentVue,
@@ -82,30 +48,14 @@
     data: function () {
       return {
         numero: "",
-        resultado: "",
-        lista:[]
+        resultado: ""
       };
     },
     methods: {
       funcionPrimos(){
-        console.log(localStorage.getItem('usuario'))
-      },
-      eliminar(id){
-        console.log(id)
-        return axios.delete('http://localhost:8083/ruta/deleteRuta/'+id).then((response)=>{
-            if (response) {
-                alert("Ruta eliminada correctamente")
-                window.location="/rutasUsuario"
-
-            }
-        })
-      },
-      agregarRuta(){
-        this.$router.push("/registroRuta");
-      },
-      editarRuta(id){
-        localStorage.setItem('idruta',id)
-        this.$router.push("/editarRuta")
+        return axios.get('http://localhost:8090/base/esPrimo/' + this.numero).then((response) => {
+          this.resultado = response.data
+        });
       }
     },
   };
@@ -158,7 +108,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    /*justify-content: center;*/
     width: 100%;
     min-height: 100%;
     padding: 20px;
@@ -416,4 +365,3 @@
     width: 20%;
   }
   </style>
-  

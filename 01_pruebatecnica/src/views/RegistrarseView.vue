@@ -4,31 +4,47 @@
             <img src="../assets/images/logo.png" alt="">
             <div class="form">
                 <p class="Welcome">Registrate</p>
-                <form v-on:submit.prevent="registrar" enctype="multipart/form-data" class="formu" action="">
-                    <p class="labelN alinear">Cedula</p>
-                    <input type="text" id="cedula" class="in alinear" name="user" placeholder="Ej: 1111111" required
-                    v-model="cedula" />
-                    <p class="labelN alinear">Nombre</p>
-                    <input type="text" id="name" class="in alinear" name="user" placeholder="Ej: juan" required
-                    v-model="nombre" />
-                    <p class="labelN alinear">Telefono</p>
-                    <input type="tel" id="phone" class="in alinear" name="user" placeholder="Ej: 3777777777" required
-                    v-model="tel" />
-                    <p class="labelN alinear">Email</p>
-                    <input type="email" id="email" class="in alinear" name="user" placeholder="Ej: example@dominio.com" required
-                    v-model="email" />
-                    <p class="labelC alinear">Contraseña</p>
-                    <input type="password" id="password" class="in alinear" name="pass" placeholder="" required
-                    v-model="contra" />
+                <form v-on:submit.prevent="registrar" enctype="multipart/form-data" class="formu" action="" style="width: 90%; margin-left: 5%;">
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Cedula</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Ingrese su cedula" v-model="cedula" >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Ingrese su nombre" v-model="nombre" >
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Celular</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Ingrese su celular o telefono" v-model="tel" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Ingrese su correo" v-model="eamil" >
+                    </div>
+                  
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Contraseña</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Ingrese su password" v-model="contra" >
+                    </div>
+                    
                     <p class="alinear">Ya te inscribiste, <a href="../" id="Back">Inicia sesion</a></p>
                     <input type="submit" class="Send alinear" value="Registrarse"/>
                   
                 </form>
                 
             </div>
-            <div class="foot">
-                <p>Desarrolado por</p>
-            </div>
+            <br>
+            <br>
         </div>
     </div>
     
@@ -74,7 +90,7 @@ export default {
 .form{
     width: 30%;
     max-width: 1000px;
-    height: 50vh;
+    height: 68vh;
     margin: auto;
     background-color: rgba(196, 196, 196, 0.5);
     

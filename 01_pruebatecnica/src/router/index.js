@@ -1,13 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import FuncionPalindromaView from '../views/FuncionPalindromaView'
-import FuncionFibonacciView from '../views/FuncionFibonacciView'
-import FuncionPrimosView from '../views/FuncionPrimosView'
-import FuncionMultiplosView from '../views/FuncionMultiplosView'
-import FuncionFactorialView from '../views/FuncionFactorialView'
 import InicioSesionView from '../views/InicioSesionView'
 import RegistrarseView from '../views/RegistrarseView.vue'
 import RutasUsuarioView from '../views/RutasUsuarioView.vue'
+import RegistrarRutaView from '../views/RegistrarRutaView'
+import EditarRutaView from '../views/EditarRutaView'
+import ApiView from '../views/ApiView'
 
 Vue.use(VueRouter);
 
@@ -28,30 +26,21 @@ const routes = [
     component: RutasUsuarioView
   },
   {
-    path: "/funcionPalindroma",
-    name: "funcionPalindroma",
-    component: FuncionPalindromaView,
+    path: "/registroRuta",
+    name: "registroRuta",
+    component: RegistrarRutaView
   },
   {
-    path: "/funcionFibonacci",
-    name: "funcionFibonacci",
-    component: FuncionFibonacciView,
+    path: "/editarRuta",
+    name: "editarRuta",
+    component: EditarRutaView
   },
   {
-    path: "/funcionPrimos",
-    name: "funcionPrimos",
-    component: FuncionPrimosView,
+    path: "/apiView",
+    name: "apiView",
+    component: ApiView,
   },
-  {
-    path: "/funcionMultiplos",
-    name: "funcionMultiplos",
-    component: FuncionMultiplosView,
-  },
-  {
-    path: "/funcionFactorial",
-    name: "funcionFactorial",
-    component: FuncionFactorialView,
-  },
+  
 ];
 
 const router = new VueRouter({

@@ -7,11 +7,11 @@
 
           <b-collapse id="nav_collapse" is-nav>
             <b-navbar-nav>
-              <b-nav-item style= "margin-left: 450px;" :to="{ name: 'rutasUsuario' }" exact>Rutas Frecuentes</b-nav-item>
+              <b-nav-item style= "margin-left: 470px;" :to="{ name: 'rutasUsuario' }" exact>Rutas Frecuentes</b-nav-item>
 
-              <b-nav-item :to="{ name: 'funcionPrimos' }">Espacio para api</b-nav-item>
+              <b-nav-item :to="{ name: 'apiView' }">Espacio para api</b-nav-item>
 
-              <b-nav-item :to="{ name: 'funcionMultiplos' }">Pico y Placa</b-nav-item>
+              <b-nav-item ><button class="btn btn-secondary" @click="cerrarSesion()">Salir</button></b-nav-item>
 
             </b-navbar-nav>
 
@@ -30,6 +30,10 @@ export default {
     };
   },
   methods: {
+    cerrarSesion(){
+      localStorage.removeItem('usuario')
+      this.$router.push("/")
+    }
   },
 };
 </script>
