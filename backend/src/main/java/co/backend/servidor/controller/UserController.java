@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.backend.servidor.dto.UserDTO;
 import co.backend.servidor.service.UserManagamentService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping(value = "/user")
 public class UserController {
 
@@ -31,7 +33,7 @@ public class UserController {
 
     @GetMapping(value = "/listUser/{id}")
     public ResponseEntity listById(@PathVariable(value = "id") Integer id) {
-        return new ResponseEntity(userService.listUserById(id), HttpStatus.OK);
+        return new ResponseEntity(userService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/addUser")
@@ -48,4 +50,10 @@ public class UserController {
     public ResponseEntity delete(@PathVariable(value = "id") Integer id){
         return new ResponseEntity(userService.deleteUser(id), HttpStatus.OK);
     }
+
+    @GetMapping(value="/login/{id}/{password}")
+    public ResponseEntity login(@PathVariable(value = "id")Integer id,@PathVariable(value = "password")String password ) {
+        return new ResponseEntity(userService.login(id, password),HttpStatus.OK);
+    }
+     
 }
