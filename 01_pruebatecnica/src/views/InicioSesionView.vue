@@ -46,6 +46,7 @@ export default {
                 console.log(response.data)
                 if (response.data != "") {
                     console.log("Funciona");
+                    this.$router.push("/rutasUsuario")
                 }else{
                     console.log("Paila no existe")
                     alert("Credenciales incorrectas")

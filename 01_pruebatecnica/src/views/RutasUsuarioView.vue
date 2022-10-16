@@ -3,7 +3,7 @@
         <div>
             <app-nav-bar />
             <div>
-                <h1>Registro de rutas mas usadas</h1>
+                <h1>Registro de rutas mas usadas por el usuario</h1>
             </div>
         </div>
     </div>
