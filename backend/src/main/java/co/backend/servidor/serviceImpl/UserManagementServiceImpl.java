@@ -41,9 +41,8 @@ public class UserManagementServiceImpl implements UserManagamentService {
         UserDTO user = userRepository.findById(id).get();
         if(user != null){
             user.setId(id);
-            user.setFirst_name(prueba.getFirst_name());
-            user.setLast_name(prueba.getLast_name());
-            user.setUsername(prueba.getUsername());
+            user.setName(prueba.getName());
+            user.setUsername(prueba.getPhone());
             user.setEmail(prueba.getEmail());
             user.setPassword(prueba.getPassword());
             userRepository.save(user);

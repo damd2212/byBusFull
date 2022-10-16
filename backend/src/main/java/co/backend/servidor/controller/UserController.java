@@ -16,10 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import co.backend.servidor.dto.UserDTO;
 import co.backend.servidor.service.UserManagamentService;
 
-/**
- *
- * @author Julio Mellizo - Luis Romero - Sebastian Otaya - Jhon Zuñiga - Santiago Cordoba
- */
 @RestController
 @CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping(value = "/user")
