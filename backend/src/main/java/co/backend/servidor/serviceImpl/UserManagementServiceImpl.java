@@ -26,7 +26,7 @@ public class UserManagementServiceImpl implements UserManagamentService {
     }
 
     @Override
-    public UserDTO listUserById(Integer id) {
+    public UserDTO findById(Integer id) {
         return userRepository.findById(id).get();
     }
 
@@ -56,6 +56,23 @@ public class UserManagementServiceImpl implements UserManagamentService {
         userRepository.deleteById(id);
         return true;
     }
+
+    @Override
+    public UserDTO login(Integer id, String password) {
+        UserDTO user = new UserDTO();
+        try {
+            System.out.println("Entro");
+            user = userRepository.login(id, password);
+            System.out.println("Nombre: " + user.getName());
+            return user;    
+        } catch (Exception e) {
+            System.out.println("Catch");
+            return null;
+        }
+        
+    }
+
+
 
 
 }
